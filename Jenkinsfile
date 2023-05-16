@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "docker build -t myimage:${params.TAG} ."
+                sh "sudo docker build -t myimage:${params.TAG} ."
                 
             }
         }
