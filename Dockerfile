@@ -1,3 +1,3 @@
-# Base image
-FROM nginx:latest
-
+FROM alpine:latest 
+MAINTAINER amit@silverpush.co 
+USER root
