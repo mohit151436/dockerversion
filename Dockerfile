@@ -1,6 +1,14 @@
-FROM nginx
-RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY content /usr/share/nginx/html
-COPY conf /etc/nginx
-VOLUME /usr/share/nginx/html
-VOLUME /etc/nginx
+# Base image
+FROM nginx:latest
+
+# Copy custom configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy static files
+COPY ./public /usr/share/nginx/html
+
+# Expose port
+EXPOSE 80
+
+# Start NGINX server
+CMD ["nginx", "-g", "daemon off;"]
