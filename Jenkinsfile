@@ -20,15 +20,10 @@ pipeline {
                 sh "docker build -t ${params.IMAGE}:${params.TAG} ."
             }
         }
-        stage('login') {
+        
+        stage('Login and Push') {
             steps {
                 sh "sh docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK"
-            }
-        }
-        
-        stage('Push') {
-            steps {
-         
                 sh "docker push ${params.IMAGE}:${params.TAG}"
             }
         }
