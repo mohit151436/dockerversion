@@ -23,7 +23,9 @@ pipeline {
         
         stage('Push') {
             steps {
-         
+                 
+                sh "docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK"
+                
                 sh "docker push ${params.IMAGE}:${params.TAG}"
             }
         }
