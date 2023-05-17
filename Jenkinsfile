@@ -3,7 +3,7 @@ pipeline {
     
     parameters {
         string(
-            defaultValue: 'harbor.sp.run/sptst',
+            defaultValue: 'harbor.sp.run/sptst/',
             description: 'Select a Docker image:',
             name: 'IMAGE'
         )
