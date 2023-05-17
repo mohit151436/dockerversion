@@ -22,7 +22,7 @@ pipeline {
         }
         stage('login') {
             steps {
-                sh "sh docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK "
+                sh "sh docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK"
             }
         }
         
