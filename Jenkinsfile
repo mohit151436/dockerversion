@@ -21,6 +21,13 @@ pipeline {
             }
         }
         
+        stages {
+        stage('Docker Login') {
+            steps {
+                sh "docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK"
+            }
+        }
+        
         stage('Push') {
             steps {
                  
