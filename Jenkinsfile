@@ -19,22 +19,21 @@ pipeline {
             steps {
                 sh "docker build -t ${params.IMAGE}:${params.TAG} ."
             }
-         }
-        
-         stage('Docker Login') {
+        }
+        stage('login') {
             steps {
-                sh "docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK"
+                sh "sh docker login harbor.sp.run/sptst -u mohit -p bW9oaXQK "
             }
-         }
-         }
+        }
         
-         stage('Push') {
-            steps {                
+        stage('Push') {
+            steps {
+         
                 sh "docker push ${params.IMAGE}:${params.TAG}"
             }
-         }
+        }
         
-         stage('Clean up') {
+        stage('Clean up') {
             steps {
                 sh "docker rmi ${params.IMAGE}:${params.TAG}"
             }
