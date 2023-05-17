@@ -20,13 +20,6 @@ pipeline {
                 sh "docker build -t ${params.IMAGE}:${params.TAG} ."
             }
         }
-
-        stage('Docker login') {
-            steps {
-         
-                sh "docker login -u user -p password"
-            }
-        }
         
         stage('Push') {
             steps {
