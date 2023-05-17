@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     parameters {
-        choice(
-            choices: ['image1', 'image2', 'image3'],
+        string(
+            defaultValue: 'my-image',
             description: 'Select a Docker image:',
             name: 'IMAGE'
         )
@@ -20,9 +20,17 @@ pipeline {
                 sh "docker build -t ${params.IMAGE}:${params.TAG} ."
             }
         }
+
+        stage('Docker login') {
+            steps {
+         
+                sh "docker login -u user -p password"
+            }
+        }
         
         stage('Push') {
             steps {
+         
                 sh "docker push ${params.IMAGE}:${params.TAG}"
             }
         }
