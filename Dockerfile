@@ -1,5 +1,5 @@
 # Base image
 FROM nginx:latest
 
-# Copy nginx.conf file
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy custom HTML files
+COPY html /usr/share/nginx/html
