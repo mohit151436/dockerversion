@@ -37,13 +37,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            emailext (
-                subject: "Pipeline ${currentBuild.result}: ${params['IMAGE-Name']}:${params.TAG}",
-                body: "Pipeline ${currentBuild.result}: ${params['IMAGE-Name']}:${params.TAG}",
-                to: "mohit.kumar561@silverpush.co"
-            )
-        }
-    }
 }
