@@ -42,12 +42,8 @@ pipeline {
             emailext (
                 subject: "Pipeline ${currentBuild.result}: ${params['IMAGE-Name']}:${params.TAG}",
                 body: "Pipeline ${currentBuild.result}: ${params['IMAGE-Name']}:${params.TAG}",
-                to: "recipient1@example.com, recipient2@example.com, recipient3@example.com"
+                to: "mohit.kumar561@silverpush.co "
             )
         }
-    }
-
-    triggers {
-        scm('*')
     }
 }
