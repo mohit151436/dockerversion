@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        awsCredentials(credentialsId: 'ea0c250c-ad8d-4bb9-8c71-9a89e516ab52', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')
+                        awsCredentials(credentialsId: '9d4aa177-9978-4ac4-9d72-77b4ec83a253', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')
                     ]) {
                         sh 'aws eks update-kubeconfig --name Parallels --region us-east-1'
                         def deploymentFile = readFile 'root/sample-deployment/deployment.yaml'
