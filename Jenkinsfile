@@ -8,10 +8,7 @@ pipeline {
             }
             steps {
                 script {
-                    // Configure AWS credentials
-                    withCredentials([
-                        awsCredentials(credentialsId: '3f3050f8-f846-443a-b79b-8495e4fa327b', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')
-                    ]) {
+                       {
                         // Update kubeconfig
                         sh 'aws eks update-kubeconfig --name Parallels --region us-east-1'
 
